@@ -1,0 +1,23 @@
+defaults: 
+  docker: &docker
+    - image: 'circleci/node:10-browsers'
+
+version: 2
+jobs:
+  test:
+    docker: *docker
+    steps:
+      - checkout
+      - restore_cache:
+          key: 'dependency-cache-{{ checksum "yarn.lock" }}'
+      - run: yarn install
+      - save_cache:
+          key: 'dependency-cache-{{ checksum "yarn.lock" }}'
+          paths:
+            - ./node_modules
+      - run: 'yarn test'
+workflows:
+  version: 2
+  test:
+    jobs:
+      - test

@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "module": "es6",
+    "target": "es6",
+    "outDir": "./dist",
+    "sourceMap": true,
+    "strict": true
+  }
+}

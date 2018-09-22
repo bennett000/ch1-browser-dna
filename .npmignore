@@ -1,0 +1,7 @@
+./.git
+./.gitignore
+tsconfig*
+tslint*
+yarn*
+node_modules
+coverage/
